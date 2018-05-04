@@ -1,0 +1,24 @@
+<view class="mapTab">
+  <view class="{{selectState[0] ? 'mapSelected' : ''}}" bindtap='clickHotel'>
+    <image class='icon' src='../../images/hotel.png'></image>
+    <view>酒店</view>
+  </view>
+  <view class="{{selectState[1] ? 'mapSelected' : ''}}" bindtap='clickFood'>
+    <image class='icon' src='../../images/food.png'></image>
+    <view>美食</view>
+  </view>
+  <view class="{{selectState[2] ? 'mapSelected' : ''}}" bindtap='clickService'>
+    <image class='icon' src='../../images/service.png'></image>
+    <view>服务</view>
+  </view>
+</view>
+
+<view class='map-container'>
+  <map class='map' id='map' latitude='{{latitude}}' longitude='{{longitude}}' scale='14' show-location='true' markers='{{markers}}' bindmarkertap="makertap"></map>
+</view>
+
+<view class='info'>
+  <text>{{placeData.title}}</text>
+  <text>{{placeData.address}}</text>
+  <text>{{placeData.telephone}}</text>
+</view>

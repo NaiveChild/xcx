@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<!-- https://www.cnblogs.com/xuanbiyijue/p/7980010.html -->
+<view class="container">
+  <swiper class='banner' autoplay="true" interval="5000" duration="1000">
+    <block wx:for="{{imgUrls}}" wx:key="key">
+      <swiper-item>
+        <image src="{{item}}" class="img"/>
+      </swiper-item>
+    </block>
+  </swiper>
+
+  <view class='loaction'>
+      <view class='dl'>当前位置：</view>
+      <view class='dl'>{{location}}{{county}}</view>
+  </view>
+
+  <view class='weather' bindtap='gotoWeather'>
+    <view class='city'>{{location}}({{today}})</view>
+    <view class='temp'>{{weatherData.tmp}}℃</view>
+    <view class="info">
+        <view>{{weatherData.cond_txt}}</view>
+        <view>{{weatherData.wind_dir}}</view>
+        <view>{{weatherData.wind_sc}}</view>
+        <view>PM2.5: {{air.pm25}}</view>
+        <view>{{air.qlty}}</view>
+    </view>
+    <view class='life'>
+      {{dress.txt}}
+    </view>
+  </view>
+</view>

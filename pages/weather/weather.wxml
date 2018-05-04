@@ -1,0 +1,40 @@
+<!-- index.wxml -->
+<image class='bg' mode ="aspectFill" src='http://img16.3lian.com/gif2016/q26/12/26.jpg'></image>
+<view class='wrapper'>
+  <view class='curWeather'>
+    <view class='curTemperature'>
+      <view class='temp'>{{now.tmp}}°</view>
+      <view class='city'>{{city}}{{district}}</view>
+      <view class='type'>{{now.cond_txt}} | 空气 {{quality.qlty}}</view>
+    </view>
+    <view class='curExtern'>
+      <view class='wind'>
+        <view>{{now.wind_dir}}</view>
+        <view wx:if='{{now.wind_sc == "微风"}}'>{{"<="}}2级</view>
+        <view wx:else>{{now.wind_sc}}级</view>
+      </view>
+      <view class='line'></view>
+      <view class='relWet'>
+        <view>相对湿度</view>
+        <view>{{now.hum}}%</view>
+      </view>
+      <view class='line'></view>
+      <view class='humanTmp'>
+        <view>体感温度</view>
+        <view>{{now.fl}}°</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='forecast'>
+    <block wx:for="{{forecast}}" wx:for-index="index" wx:for-item="fc" wx:key="key">
+      <view class='castItem'>
+        <view>{{showday[index]}}</view>
+        <view>
+          {{fc.cond_txt_d}} | {{fc.wind_sc}}
+        </view>
+        <view>{{fc.tmp_max}}° / {{fc.tmp_min}}°</view>
+      </view>
+    </block>
+  </view>
+</view>
